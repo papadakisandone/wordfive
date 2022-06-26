@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Line from "./components/Line";
-
+import Modal from "./components/Modal";
 import styles from "./app.module.css";
 
 const API_URL = "https://random-word-api.herokuapp.com/word?length=5&number=10";
@@ -12,6 +12,7 @@ function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [giveup, setGiveup] = useState(false);
   const [tries, setTries] = useState(0); // how many tries can do, max 6
+  const [showModal, setShowModal]=useState(false);
 
   // API
   useEffect(() => {
@@ -28,7 +29,7 @@ function App() {
   // keybord
   useEffect(() => {
     const handleType = (e) => {
-      if (isGameOver) {
+      if (isGameOver) { 
         return;
       }
 
@@ -49,8 +50,9 @@ function App() {
         setCurrentGuess("");
 
         const isCorrect = solution === currentGuess;
-        if (isCorrect) {
+        if (isCorrect) { // found solution before the game ends
           setIsGameOver(true);
+          setShowModal(true);
         }
       }
 
@@ -69,11 +71,21 @@ function App() {
 
   const showAnswerHandler = () => {
     setGiveup(true);
+    setShowModal(true);
+    
   };
 
   const triesHandler = () => {
     setTries((prevValue) => prevValue + 1);
   };
+
+  const showModalHandler = ()=>{
+    setShowModal(false);
+    window.location.reload() // refresh page to get new word
+  };
+  const startNewGameHandler = ()=>{
+    window.location.reload() // refresh page to get new word
+  }
 
   return (
     <>
@@ -92,12 +104,22 @@ function App() {
             />
           );
         })}
+      </div>
+
+      {/* {showModal && <Modal title="titlos" message="Our Message" onClose={showModalHandler}/>} */}
+      <div className={styles.bntContainer}>
         <button className={styles.btnGiveUp} onClick={showAnswerHandler}>
           Give Up
         </button>
-        {isGameOver && <h2>You Win!</h2>}
-        {(giveup || tries === 6) && <p>The Word is: {solution}</p>}
+        <button className={styles.btnGiveUp} onClick={startNewGameHandler}>
+          New Game
+        </button>
       </div>
+
+        {(giveup || tries === 6) && showModal && <Modal title="Try Again" message={`The Word it was: ${solution}`}  onClose={showModalHandler}/>}
+        
+        {isGameOver && showModal && <Modal title="You Won" message="Great Guess, you are Good!"  onClose={showModalHandler}/>}
+        
       <div className={styles.rulesContainer}>
         <div className={styles.rulesText}>
           <h4>The rules are very simple:</h4>

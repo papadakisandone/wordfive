@@ -15,12 +15,12 @@
     text-transform: uppercase;
 }
 .correct{
-    background-color: lightgreen;
+    background-color: #79b851;
 }
 .incorrect{
-    background-color: rgb(133, 131, 131);
+    background-color: #a4aec4;
 }
 .almost{
-    background-color: yellow;
+    background-color: #f3c237;
 }
 
