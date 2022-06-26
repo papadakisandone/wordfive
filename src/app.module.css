@@ -1,0 +1,44 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: #9e3d91;
+    
+}
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    text-transform: uppercase;
+    margin-top: 5%;
+}
+.rulesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rulesText{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1rem;
+}
+h4{
+    margin: 0 auto;
+
+}
+.btnGiveUp{
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid #9e3d91;
+    border-radius: 1rem;
+    width: 7rem;
+    padding: 0.6rem;
+}
+.btnGiveUp:hover{
+    background: #df38c8;
+}
