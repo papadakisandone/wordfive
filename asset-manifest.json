@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/wordfive/static/css/main.f8fecd14.css",
-    "main.js": "/wordfive/static/js/main.521b7f6d.js",
+    "main.js": "/wordfive/static/js/main.a1274f55.js",
     "index.html": "/wordfive/index.html",
     "main.f8fecd14.css.map": "/wordfive/static/css/main.f8fecd14.css.map",
-    "main.521b7f6d.js.map": "/wordfive/static/js/main.521b7f6d.js.map"
+    "main.a1274f55.js.map": "/wordfive/static/js/main.a1274f55.js.map"
   },
   "entrypoints": [
     "static/css/main.f8fecd14.css",
-    "static/js/main.521b7f6d.js"
+    "static/js/main.a1274f55.js"
   ]
 }
