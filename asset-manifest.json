@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wordfive/static/css/main.13649d23.css",
+    "main.js": "/wordfive/static/js/main.f1ded948.js",
+    "index.html": "/wordfive/index.html",
+    "main.13649d23.css.map": "/wordfive/static/css/main.13649d23.css.map",
+    "main.f1ded948.js.map": "/wordfive/static/js/main.f1ded948.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13649d23.css",
+    "static/js/main.f1ded948.js"
+  ]
+}
