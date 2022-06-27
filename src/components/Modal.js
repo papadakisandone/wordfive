@@ -11,9 +11,8 @@ const Modal = (props)=>{
         <div className={styles.xContainer}>
             <span className={styles.x} onClick={closeMOdalHandler}><AiOutlineCloseCircle/></span>
         </div>
-        
-        <div><h2>{props.title}</h2></div>
-        <div><p>{props.message}</p></div>
+        <div className={styles.title}><h2>{props.title}</h2></div>
+        <div><p>{props.message}<span className={styles.solution}>{props.solution}</span></p></div>
         <div className={styles.btnContainer}><button className ={styles.btnClose} onClick={closeMOdalHandler}>Close</button></div>
     </div>
         

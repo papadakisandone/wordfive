@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Line from "./components/Line";
 import Modal from "./components/Modal";
 import styles from "./app.module.css";
+import Keyboard from "./components/Keyboard";
 
 const API_URL = "https://random-word-api.herokuapp.com/word?length=5&number=10";
 
@@ -9,10 +10,10 @@ function App() {
   const [solution, setSolution] = useState(""); // correct word
   const [guesses, setGuesses] = useState(Array(6).fill(null)); // total guesses
   const [currentGuess, setCurrentGuess] = useState(""); //user current guess
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [isSolved, setIsSolved] = useState(false);
   const [giveup, setGiveup] = useState(false);
   const [tries, setTries] = useState(0); // how many tries can do, max 6
-  const [showModal, setShowModal]=useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   // API
   useEffect(() => {
@@ -29,7 +30,7 @@ function App() {
   // keybord
   useEffect(() => {
     const handleType = (e) => {
-      if (isGameOver) { 
+      if (isSolved) {
         return;
       }
 
@@ -50,8 +51,9 @@ function App() {
         setCurrentGuess("");
 
         const isCorrect = solution === currentGuess;
-        if (isCorrect) { // found solution before the game ends
-          setIsGameOver(true);
+        if (isCorrect) {
+          // found solution before the game ends
+          setIsSolved(true);
           setShowModal(true);
         }
       }
@@ -67,25 +69,25 @@ function App() {
     };
     window.addEventListener("keydown", handleType);
     return () => window.removeEventListener("keydown", handleType);
-  }, [currentGuess, isGameOver, solution]);
+  }, [currentGuess, isSolved, solution]);
 
-  const showAnswerHandler = () => {
+  const showAnswerHandler = () => { // when press buttton give up
     setGiveup(true);
     setShowModal(true);
-    
   };
 
-  const triesHandler = () => {
-    setTries((prevValue) => prevValue + 1);
-  };
+  const triesHandler = () => { // count tries
+    setTries(prevValue => prevValue+1) 
+         
+  }; // triesHandler
 
-  const showModalHandler = ()=>{
+  const showModalHandler = () => {
     setShowModal(false);
-    window.location.reload() // refresh page to get new word
+    // window.location.reload(); // refresh page to get new word
   };
-  const startNewGameHandler = ()=>{
-    window.location.reload() // refresh page to get new word
-  }
+  const startNewGameHandler = () => {
+    window.location.reload(); // refresh page to get new word
+  };
 
   return (
     <>
@@ -98,38 +100,56 @@ function App() {
           const isCurrentGuess = i === guesses.findIndex((val) => val == null);
           return (
             <Line
+              key={i}
               guess={isCurrentGuess ? currentGuess : guess ?? ""}
               isFinal={!isCurrentGuess && guess != null}
-              solution={solution}
-            />
+              solution={solution}/>
           );
         })}
       </div>
-
-      {/* {showModal && <Modal title="titlos" message="Our Message" onClose={showModalHandler}/>} */}
+        
+      
       <div className={styles.bntContainer}>
-        <button className={styles.btnGiveUp} onClick={showAnswerHandler}>
+        {!isSolved && <button className={styles.btnGiveUp} onClick={showAnswerHandler}>
           Give Up
-        </button>
+        </button>}
         <button className={styles.btnGiveUp} onClick={startNewGameHandler}>
           New Game
         </button>
       </div>
+      
+       <Keyboard 
+        solution={solution}
+        guesses={guesses} />    
 
-        {(giveup || tries === 6) && showModal && <Modal title="Try Again" message={`The Word it was: ${solution}`}  onClose={showModalHandler}/>}
-        
-        {isGameOver && showModal && <Modal title="You Won" message="Great Guess, you are Good!"  onClose={showModalHandler}/>}
-        
+      {(giveup || tries === 6) && (
+        <Modal
+          title="Try Again"
+          message={`The Word it was: `}
+          solution={`${solution}`}
+          onClose={showModalHandler}
+        />
+      )}
+
+      {isSolved && showModal && (
+        <Modal
+          title="You Won"
+          message="Great Guess, you are Good!"
+          onClose={showModalHandler}
+        />
+      )}
+
       <div className={styles.rulesContainer}>
         <div className={styles.rulesText}>
           <h4>The rules are very simple:</h4>
           <p>
-            You need to guess the five-letter hidden word in 6 tries. To get
-            started, just type any word on the first line. If the letter is
+            You need to guess the five-letter hidden word in 6 tries. 
+            <p>To get started, just type any word on the first line. If the letter is
             guessed correctly and is in the correct place, it will be
             highlighted in green, if the letter is in the word, but in the wrong
             place - in yellow, and if the letter is not in the word, it will
-            remain gray. Can you guess the hidden 5-letter word in six tries?
+            remain gray.</p> 
+            <p><em>Can you guess the hidden 5 letter word in six tries?</em></p>
           </p>
         </div>
       </div>

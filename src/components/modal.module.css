@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 .containerModal{
     position:fixed;
     left: 0;
@@ -7,6 +9,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(143, 140, 140, 0.4);
+    font-family: 'Montserrat', sans-serif;
     /* opacity:0;
     visibility: hidden; */
     transition: 0.3s ease-in-out;
@@ -25,6 +28,11 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.125);
     transition: 0.3s ease-in-out;
     animation: msg 3s forwards;
+}
+.solution{
+    text-transform: uppercase ;
+    font-weight: bold ;
+    margin-left: 1rem;
 }
 .btnContainer{
     display: flex;
@@ -48,6 +56,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-bottom: 0;
 }
 .x{
     font-size: 1.5rem;
@@ -55,6 +64,9 @@
 }
 .x:hover{
     cursor: pointer;
+}
+.title{
+    margin-top: 0;
 }
 @keyframes msg {
     0%{

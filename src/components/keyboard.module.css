@@ -1,0 +1,40 @@
+.keyboard{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    width: 30%;
+}
+.keyboard__row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.keyboard__button{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: #dce1ed;
+    color: #5a6376;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 3px;
+    min-height: 46px;
+    padding: 3px;
+    text-transform: capitalize;
+    /* color: inherit; */
+    /* cursor: pointer; */
+    /* user-select: none; */
+    /* text-decoration: inherit; */
+}
+.correct{
+    background-color: #79b851;
+}
+.incorrect{
+    background-color: #a4aec4;
+}
+.almost{
+    background-color: #f3c237;
+}
