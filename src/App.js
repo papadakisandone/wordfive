@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Line from "./components/Line";
 import Modal from "./components/Modal";
+import Footer from "./components/Footer";
 import styles from "./app.module.css";
 import Keyboard from "./components/Keyboard";
 
@@ -158,6 +159,7 @@ function App() {
           </p>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
