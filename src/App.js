@@ -115,7 +115,7 @@ function App() {
         
       
       <div className={styles.bntContainer}>
-        {!isSolved && <button className={styles.btnGiveUp} onClick={showAnswerHandler}>
+        {(!isSolved && tries<6) && <button className={styles.btnGiveUp} onClick={showAnswerHandler}>
           Give Up
         </button>}
         <button className={styles.btnGiveUp} onClick={startNewGameHandler}>
