@@ -1,4 +1,10 @@
+# Live Demo
+https://papadakisandone.github.io/wordfive/
+
+This game is a re
 # Find the 5 letter word.
+
+I tried to recreate the game wordlegame 5 letter word.
 
 The rules are very simple: You need to guess the five-letter hidden word in 6 tries. To get started, just type any word on the first line. If the letter is guessed correctly and is in the correct place, it will be highlighted in green, if the letter is in the word, but in the wrong place - in yellow, and if the letter is not in the word, it will remain gray. Can you guess the hidden 5-letter word in six tries?
 
