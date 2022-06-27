@@ -122,7 +122,8 @@ function App() {
         solution={solution}
         guesses={guesses} />    
 
-      {(giveup || tries === 6) && (
+        {/* give up or did 6 tries with out found the solution */}
+      {((giveup || tries === 6) && !isSolved) && (
         <Modal
           title="Try Again"
           message={`The Word it was: `}
