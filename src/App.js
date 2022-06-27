@@ -13,7 +13,7 @@ function App() {
   const [isSolved, setIsSolved] = useState(false);
   const [giveup, setGiveup] = useState(false);
   const [tries, setTries] = useState(0); // how many tries can do, max 6
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
   // API
   useEffect(() => {
@@ -54,7 +54,7 @@ function App() {
         if (isCorrect) {
           // found solution before the game ends
           setIsSolved(true);
-          setShowModal(true);
+          // setShowModal(!showModal);
         }
       }
 
@@ -73,7 +73,8 @@ function App() {
 
   const showAnswerHandler = () => { // when press buttton give up
     setGiveup(true);
-    setShowModal(true);
+    // setShowModal(!showModal);
+        
   };
 
   const triesHandler = () => { // count tries
@@ -81,10 +82,13 @@ function App() {
          
   }; // triesHandler
 
-  const showModalHandler = () => {
-    setShowModal(false);
-    // window.location.reload(); // refresh page to get new word
-  };
+  // chck this close modal
+
+  // const showModalHandler = () => {
+  //   setShowModal(!showModal);
+        
+  //   // window.location.reload(); // refresh page to get new word
+  // };
   const startNewGameHandler = () => {
     window.location.reload(); // refresh page to get new word
   };
@@ -123,20 +127,20 @@ function App() {
         guesses={guesses} />    
 
         {/* give up or did 6 tries with out found the solution */}
-      {((giveup || tries === 6) && !isSolved) && (
+      {((giveup || tries === 6) && !isSolved ) && (
         <Modal
           title="Try Again"
           message={`The Word it was: `}
           solution={`${solution}`}
-          onClose={showModalHandler}
+          showModal="true"
         />
       )}
 
-      {isSolved && showModal && (
+      {isSolved && (
         <Modal
           title="You Won"
           message="Great Guess, you are Good!"
-          onClose={showModalHandler}
+          showModal="true"
         />
       )}
 
