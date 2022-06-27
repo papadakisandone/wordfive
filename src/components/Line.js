@@ -13,6 +13,8 @@ const Line = (props) => {
   // split the letters of the quess word into the tiles array
   // check each letter from the guess if is equal with the soloution letter
 
+  // TODO => if a letter is green to not change color if i use it again
+  
   for (let i = 0; i < WORD_LENGTH; i++) {
     // let char = guess[i];
 
