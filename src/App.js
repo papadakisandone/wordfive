@@ -148,16 +148,16 @@ function App() {
       <div className={styles.rulesContainer}>
         <div className={styles.rulesText}>
           <h4>The rules are very simple:</h4>
-          <p>
-            You need to guess the five-letter hidden word in 6 tries. 
-            <p>To get started, just type any word on the first line. If the letter is
-            guessed correctly and is in the correct place, it will be
-            highlighted in green, if the letter is in the word, but in the wrong
-            place - in yellow, and if the letter is not in the word, it will
-            remain gray.</p> 
+          <p> You need to guess the five-letter hidden word in 6 tries.</p>
+              <p>To get started, just type any word on the first line. If the letter is
+              guessed correctly and is in the correct place, it will be
+              highlighted in green, if the letter is in the word, but in the wrong
+              place - in yellow, and if the letter is not in the word, it will
+              remain gray.
+              </p> 
             <p><em>Can you guess the hidden 5 letter word in six tries?</em></p>
             <p>Currently you can only play it on PC-Laptop.</p>
-          </p>
+          
         </div>
       </div>
       <Footer/>
