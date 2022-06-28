@@ -115,7 +115,7 @@ function App() {
         
       
       <div className={styles.bntContainer}>
-        {(!isSolved && tries<6) && <button className={styles.btnGiveUp} onClick={showAnswerHandler}>
+        {(!isSolved && tries<6) && !giveup && <button className={styles.btnGiveUp} onClick={showAnswerHandler}>
           Give Up
         </button>}
         <button className={styles.btnGiveUp} onClick={startNewGameHandler}>
@@ -128,7 +128,7 @@ function App() {
         guesses={guesses} />    
 
         {/* give up or did 6 tries with out found the solution */}
-      {((giveup || tries === 6) && !isSolved ) && (
+      {((giveup )) && (
         <Modal
           title="Try Again"
           message={`The Word it was: `}
@@ -156,6 +156,7 @@ function App() {
             place - in yellow, and if the letter is not in the word, it will
             remain gray.</p> 
             <p><em>Can you guess the hidden 5 letter word in six tries?</em></p>
+            <p>Currently you can only play it on PC-Laptop.</p>
           </p>
         </div>
       </div>

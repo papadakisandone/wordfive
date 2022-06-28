@@ -2,6 +2,8 @@
 
 https://papadakisandone.github.io/wordfive/
 
+Currently you can only play it on PC-Laptop.
+
 # Find the 5 letter word.
 
 I tried to recreate the game wordlegame 5 letter word.
